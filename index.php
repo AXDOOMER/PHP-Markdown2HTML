@@ -9,7 +9,9 @@
 		// Check extension to hide other files
 		$ext = pathinfo($value, PATHINFO_EXTENSION);
 		if ($ext == "md") {
-			echo("<a href=\"index.php?page=$value\">$value</a><br/>");
+			$dot = strpos($value, '.');
+			$text = substr($value, 0, $dot);
+			echo("<a href=\"index.php?page=$value\">$text</a><br/>");
 		}
 	}
 ?>
@@ -33,7 +35,7 @@
 			echo($Parsedown->text($content));
 		}
 	} else {
-		echo("Hi! Please select a link to visit.");
+		echo("Hi! Please click on a link to visit.");
 	}
 ?>
 
